@@ -1,4 +1,13 @@
 {
   "serverListenMessage": "Server started on",
-  "databaseConnectionMessage": "Database connected successful"
+  "databaseConnectionMessage": "Database connected successful",
+  "error": {
+    "DoesNotExist": "Does`t exist",
+    "AlreadyExist": "Already exist",
+    "CreateError": "An error occurred during creation"
+  },
+  "success": {
+    "Deleted": "Success deleted",
+    "Updated": "Success updated"
+  }
 }
