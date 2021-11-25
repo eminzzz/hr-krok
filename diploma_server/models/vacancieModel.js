@@ -4,16 +4,16 @@ const vacancieSchema = new Schema({
   title: {
     type: String,
   },
-  desctiption: {
+  description: {
     type: String,
   },
-  hashTags: {
+  hashTags: [{
     type: Schema.Types.ObjectId,
     ref: "hashTag",
-  },
+  }],
   isShowed: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 
