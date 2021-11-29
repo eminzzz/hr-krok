@@ -1,0 +1,58 @@
+.Badge {
+  position: relative;
+}
+
+.Info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.Image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+.Name {
+  margin: 0 5px 0 5px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 120%;
+  color: #3B3D4C;
+}
+
+.Icon {
+  display: block;
+}
+
+.ActiveIcon {
+  transform: rotate(-180deg);
+}
+
+.Menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  padding: 15px 24px;
+  background: #222222;
+  border-radius: 5px;
+}
+
+.Link {
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 120%;
+  color: #fff;
+  text-decoration: none;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
