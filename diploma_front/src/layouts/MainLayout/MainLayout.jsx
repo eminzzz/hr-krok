@@ -4,6 +4,7 @@ import { Logo } from "../../components/Logo";
 import Header from "../../components/Header/Header";
 import Badge from "../../components/Badge/Badge";
 import Content from "../../components/Content/Content";
+import Navigation from "../../components/Navigation/Navigation";
 
 export const MainLayout = ({ children }) => {
   return (
@@ -12,7 +13,10 @@ export const MainLayout = ({ children }) => {
         <Logo to="/" />
         <Badge />
       </Header>
-      <Content>{children}</Content>
+      <Content>
+        <Navigation />
+        {children}
+      </Content>
     </div>
   );
 };
