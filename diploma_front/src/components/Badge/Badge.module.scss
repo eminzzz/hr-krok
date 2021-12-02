@@ -52,6 +52,8 @@
   line-height: 120%;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
+  user-select: none;
   &:last-child {
     margin-bottom: 0;
   }
