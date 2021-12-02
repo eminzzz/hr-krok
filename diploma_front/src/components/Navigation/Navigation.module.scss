@@ -1,0 +1,48 @@
+@mixin hover-style {
+  background: #222222;
+  border-radius: 9px;
+  color: #FFFFFF;
+}
+
+
+.Navigation {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.Link {
+  background: #F2F2F2;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 120%;
+  color: #222222;
+  text-decoration: none;
+  padding: 12px 30px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: all .3s ease-out;
+  min-height: 48px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    @include hover-style;
+  }
+}
+
+.LinkActive {
+  @include hover-style;
+}
+
+.Icon {
+  display: block;
+  width: 20px;
+  height: 21px;
+  margin-right: 10px;
+}
