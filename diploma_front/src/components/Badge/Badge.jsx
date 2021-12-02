@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import cn from "classnames";
 import styles from "./Badge.module.scss";
 
 import userImage from "./images/user.png";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useToggle } from "../../hooks/useToggle";
 
 const Badge = () => {
   const [toggle, setToggle] = useToggle(false);
+  const menu = useRef(null);
   const toggleMenu = () => {
     setToggle.toggle();
   };
-  const navigate = useNavigate();
+  const history = useHistory();
   const handleLinkClick = (to) => {
     setToggle.changeToggle(false);
-    navigate(to);
+    history.push(to);
   };
+
+  const clickOutside = (event) => {
+    if (event.target !== menu.current && toggle) {
+      setToggle.changeToggle(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", clickOutside);
+    return () => document.removeEventListener("click", clickOutside);
+  });
+
   return (
     <div className={styles.Badge}>
       <div onClick={toggleMenu} className={styles.Info}>
@@ -38,7 +51,7 @@ const Badge = () => {
         </svg>
       </div>
       {toggle && (
-        <div className={styles.Menu}>
+        <div ref={menu} className={styles.Menu}>
           <div className={styles.Link} onClick={() => handleLinkClick("/")}>
             Home
           </div>
