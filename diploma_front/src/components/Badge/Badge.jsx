@@ -3,13 +3,18 @@ import cn from "classnames";
 import styles from "./Badge.module.scss";
 
 import userImage from "./images/user.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useToggle } from "../../hooks/useToggle";
 
 const Badge = () => {
   const [toggle, setToggle] = useToggle(false);
   const toggleMenu = () => {
     setToggle.toggle();
+  };
+  const navigate = useNavigate();
+  const handleLinkClick = (to) => {
+    setToggle.changeToggle(false);
+    navigate(to);
   };
   return (
     <div className={styles.Badge}>
@@ -34,18 +39,27 @@ const Badge = () => {
       </div>
       {toggle && (
         <div className={styles.Menu}>
-          <Link className={styles.Link} to="/">
+          <div className={styles.Link} onClick={() => handleLinkClick("/")}>
             Home
-          </Link>
-          <Link className={styles.Link} to="/about">
+          </div>
+          <div
+            className={styles.Link}
+            onClick={() => handleLinkClick("/about")}
+          >
             About
-          </Link>
-          <Link className={styles.Link} to="/user/admins">
+          </div>
+          <div
+            className={styles.Link}
+            onClick={() => handleLinkClick("/admin/admins")}
+          >
             Admins
-          </Link>
-          <Link className={styles.Link} to="/user/settings">
+          </div>
+          <div
+            className={styles.Link}
+            onClick={() => handleLinkClick("/admin/settings")}
+          >
             Settings
-          </Link>
+          </div>
         </div>
       )}
     </div>
