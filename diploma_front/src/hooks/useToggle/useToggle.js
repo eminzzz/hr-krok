@@ -7,11 +7,16 @@ export const useToggle = (initialValue = false) => {
     setValue((prev) => !prev);
   };
 
+  const changeToggle = (newValue) => {
+    setValue(newValue);
+  };
+
   return [
     value,
     {
       set: setValue,
       toggle,
+      changeToggle,
     },
   ];
 };
